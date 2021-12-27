@@ -13,6 +13,7 @@ export function ShoppingList() {
   useEffect(() => {
     const subscribe = firestore()
       .collection("products")
+      // .where("quantity", "!=", 10)
       .onSnapshot((querySnapshot) => {
         const data = querySnapshot.docs.map((doc) => {
           return {
@@ -26,6 +27,7 @@ export function ShoppingList() {
     return () => subscribe();
   }, []);
 
+  //leitura unica
   // useEffect(() => {
   //   firestore()
   //     .collection("products")
